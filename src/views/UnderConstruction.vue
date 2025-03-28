@@ -13,6 +13,11 @@
                 />
                 <button type="button" @click="submitInput">participar</button>
             </form>
+            <VueAlert
+                :type="alert.type"
+                :message="alert.message"
+                :show="alert.show"
+            />
         </main>
         <footer>
             <p>© 2025 por Frazatto Logística. Criação e desenvolvimento com Yan Vieira e Marcos Monte.</p>
@@ -22,12 +27,22 @@
 </template>
 
 <script>
+import VueAlert from '@/components/VueAlert.vue'
 import http from '@/config'
+
 export default {
     name: 'PageInConstruction',
+
+    components: { VueAlert },
+
     data(){
         return {
             userEmail: '',
+            alert: {
+                type: '',
+                message: '',
+                show: false,
+            }
         }
     },
 
@@ -35,22 +50,45 @@ export default {
         async submitInput(){
 
             if(!this.userEmail) {
-                console.log('Não foi cadastrado nenhum email')
+                this.showAlert('danger', 'Insira um E-mail!')
+                this.hiddenAlert()
                 return
             } 
+
             const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.userEmail);
 
             if (!emailValido){
                 console.log('E-mail inválido!')
+                this.showAlert('danger', 'E-mail inválido!')
+                this.hiddenAlert()
                 return
             } 
+
             try {
                 await http.post('/', {email: this.userEmail})
                 this.userEmail = '',
+                this.showAlert('success', 'E-mail cadastrado com sucesso!')
+                this.hiddenAlert()
 
-                console.log(`Usuario ${this.userEmail} cadastrado com sucesso!`)
             } catch (error){
                 console.error('Erro ao cadastrar o usuário: ', error)
+                this.showAlert('danger', 'Não foi possível cadastrar o e-mail. Tente novamente!')
+                this.hiddenAlert()
+            }
+
+        },
+
+        hiddenAlert(){
+            setTimeout(() => {
+                this.alert.show = false
+            }, 3000)
+        },
+
+        showAlert(type, message){
+            this.alert = {
+                type: type,
+                show: true,
+                message: message
             }
         }
     }
@@ -134,7 +172,7 @@ export default {
                 button {
                     width: 15%;
                     height: 100%;
-                    background-color: var(--primary);
+                    background-color: var(--primaryColor);
                     color: var(--light);
                     text-transform: capitalize;
                     font-size: 1.5rem;
@@ -143,7 +181,7 @@ export default {
 
                     &:hover{
                         background-color: var(--gray);
-                        color: var(--secondary)
+                        color: var(--secondaryColor) !important;
                     }
                 }
                 
