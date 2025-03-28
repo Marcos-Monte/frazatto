@@ -11,7 +11,7 @@
                     required
                     v-model="userEmail"
                 />
-                <button type="button" @click="submitInput">participar</button>
+                <b-button  @click="submitInput">participar</b-button>
             </form>
             <VueAlert
                 :type="alert.type"
@@ -137,6 +137,7 @@ export default {
                 color: var(--gray);
                 text-transform: uppercase;
                 font-weight: 500;
+                text-align: center;
                 //text-shadow: .2rem .3rem .3rem var(--dark);
             }
 
@@ -146,20 +147,17 @@ export default {
 
             form {
                 height: 4rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 1rem;
-                flex-wrap: wrap;
+                text-align: center;
                 margin-top: 3rem;
 
                 input {
-                    width: 60%;
+                    width: 600px;
                     height: 100%;
                     background-color: var(--dark);
                     opacity: .4;
                     border: none;
                     padding: .5rem;
+                    margin-right: 1rem;
                     color: var(--light);
 
                     &::placeholder {
@@ -170,7 +168,6 @@ export default {
                 }
 
                 button {
-                    width: 15%;
                     height: 100%;
                     background-color: var(--primaryColor);
                     color: var(--light);
@@ -205,7 +202,28 @@ export default {
         }
     }
 
-// @media screen (max-width: 769px){
+@media(max-width: 769px){
+    .content {
+        padding: 0 2rem;
+        h2 {
+            font-size: 1.2rem !important;
+        }
+        form {
+            height: 3.5rem !important;
+            input {
+                width: 100% !important;
+                margin-left: 0;
+                margin-bottom: 1rem;
 
-// }
+                &::placeholder {
+                    font-size: 1.2rem !important;
+                }
+            }
+            button {
+                width: 200px;
+                font-size: 1.2rem !important;
+            }
+        }
+    }
+}
 </style>
