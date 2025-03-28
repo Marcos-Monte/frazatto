@@ -22,7 +22,7 @@
 </template>
 
 <script>
-
+import http from '@/config'
 export default {
     name: 'PageInConstruction',
     data(){
@@ -32,16 +32,22 @@ export default {
     },
 
     methods: {
-        submitInput(){
+        async submitInput(){
 
             if(!this.userEmail) {
                 console.log('Não foi cadastrado nenhum email')
                 return
-            } else if (this.userEmail.includes('@') === false){
+            } 
+            const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.userEmail);
+
+            if (!emailValido){
                 console.log('E-mail inválido!')
                 return
             } 
             try {
+                await http.post('/', {email: this.userEmail})
+                this.userEmail = '',
+
                 console.log(`Usuario ${this.userEmail} cadastrado com sucesso!`)
             } catch (error){
                 console.error('Erro ao cadastrar o usuário: ', error)
