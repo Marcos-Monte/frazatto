@@ -9,9 +9,9 @@ Vue.use(VueRouter)
 
 const routes = [
     { path: '*', redirect: '/' },
-    { path: '/construction', name: 'EmConstrucao',component: UnderConstruction },
+    { path: '/', name: 'EmConstrucao',component: UnderConstruction },
     { 
-        path: '/', 
+        path: '/home', 
         component: LayoutHome ,
         children: [
             {
