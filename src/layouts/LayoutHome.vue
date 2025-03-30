@@ -11,7 +11,7 @@
                     <b-nav-item href="#sobre">Sobre</b-nav-item>
                     <b-nav-item href="#servicos" >Serviços</b-nav-item>
                     <b-nav-item href="#parceiros" >Parceiros</b-nav-item>
-                    <b-nav-item href="#contatos" >Contatos</b-nav-item>
+                    <b-nav-item href="#contatos">Contatos</b-nav-item>
                 </b-navbar-nav>
 
             </b-collapse>

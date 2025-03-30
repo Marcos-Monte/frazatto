@@ -1,6 +1,6 @@
 <template>
 
-    <div id="servicos">
+    <div id="servicos" class="wow animate__animated animate__bounceInUp ">
         <h2>Serviços</h2>
     </div>
 

@@ -3,7 +3,7 @@
     <div class="contentBox">
         <main class="content">
             <h2>estamos lançando nosso site em breve</h2>
-            <img src="@/assets/construction/logo.webp" alt="">
+            <img src="@/assets/construction/logo.webp" alt="" class="wow animate__animated animate__bounceInLeft ">
             <form>
                 <input 
                     type="email" 
