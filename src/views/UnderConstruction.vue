@@ -203,8 +203,14 @@ export default {
     }
 
 @media(max-width: 769px){
+    .contentBox{
+    }
     .content {
         padding: 0 2rem;
+        justify-content: center !important;
+        gap: 1rem !important;
+        //background-color: red;
+        
         h2 {
             font-size: 1.2rem !important;
         }
@@ -223,6 +229,12 @@ export default {
                 width: 200px;
                 font-size: 1.2rem !important;
             }
+        }
+    }
+
+    footer{
+        p {
+            font-size: .8rem !important;
         }
     }
 }

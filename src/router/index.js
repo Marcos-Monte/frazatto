@@ -2,17 +2,16 @@ import Vue from "vue";
 import VueRouter from 'vue-router';
 
 import LayoutHome from "@/layouts/LayoutHome.vue";
-import LandingPage from "@/views/LandingPage.vue";
+import LandingPage from "@/views/Home.vue";
 import UnderConstruction from "@/views/UnderConstruction.vue";
 
 Vue.use(VueRouter)
 
 const routes = [
     { path: '*', redirect: '/' },
-    { path: '/', name: 'EmConstrucao',component: UnderConstruction },
+    { path: '/construction', name: 'EmConstrucao',component: UnderConstruction },
     { 
-        path: '/home', 
-        name: 'LandingPage',
+        path: '/', 
         component: LayoutHome ,
         children: [
             {
