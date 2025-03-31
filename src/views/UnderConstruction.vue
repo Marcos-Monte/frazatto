@@ -156,23 +156,24 @@ export default {
                     background-color: var(--dark);
                     opacity: .4;
                     border: none;
-                    padding: .5rem;
+                    padding: .5rem 1.5rem;
                     margin-right: 1rem;
                     color: var(--light);
 
                     &::placeholder {
                         color: var(--light);
-                        font-size: 1.5rem;
+                        font-size: 1.2rem;
                         font-weight: 500;
                     }
                 }
 
                 button {
                     height: 100%;
+                    min-width: 140px;
                     background-color: var(--primaryColor);
                     color: var(--light);
                     text-transform: capitalize;
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     border: none;
                     font-weight: 500;
 
