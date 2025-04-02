@@ -130,10 +130,10 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 3rem;
+            gap: .7rem;
 
             h2 {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 color: var(--gray);
                 text-transform: uppercase;
                 font-weight: 500;
